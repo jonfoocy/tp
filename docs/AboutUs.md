@@ -28,7 +28,7 @@ You can find us on [Github](https://github.com/AY2021S1-CS2103T-W15-1)
 
 ### Jonathan Foo Chee Yong
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/jonfoocy.png" width="200px">
 
 [[github](http://github.com/jonfoocy)]
 
