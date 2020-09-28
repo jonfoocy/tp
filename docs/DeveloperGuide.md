@@ -299,8 +299,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Question Set**: A set containing a question and answer(s)
+* **Question**: A question, which may have one or more answers
+* **Answer**: An answer to a question
 
 --------------------------------------------------------------------------------------------------------------------
 
