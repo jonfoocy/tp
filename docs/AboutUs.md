@@ -5,55 +5,59 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
+You can find us on [Github](https://github.com/AY2021S1-CS2103T-W15-1)
 
 ## Project team
 
-### John Doe
+### Kim Hyeongcheol (Danny)
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/bluesky0911.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/bluesky0911)]
 
 * Role: Project Advisor
 
-### Jane Doe
+### Yong Ming Yang
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/yongmingyang.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/yongmingyang)]
 
 * Role: Team Lead
-* Responsibilities: UI
+* Responsibilities: Deliverables & deadlines, Scheduling & tracking
 
-### Johnny Doe
+### Jonathan Foo Chee Yong
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/jonfoocy.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Data
-
-### Jean Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/jonfoocy)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: Integration
 
-### James Doe
+### Cheng Jiyuqing
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/ChengJiyuqing.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/ChengJiyuqing)]
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: Testing
+
+### Tan Rui En Joshua
+
+<img src="images/joshruien.png" width="200px">
+
+[[github](https://github.com/joshruien)]
+
+* Role: Developer
+* Responsibilities: Documentation
+
+### Teng Jian Ling
+
+<img src="images/tengjianling.png" width="200px">
+
+[[github](https://github.com/tengjianling)]
+
+* Role: Developer
+* Responsibilities: Code Quality
