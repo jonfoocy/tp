@@ -22,6 +22,7 @@ Shows the entire database of question and answer pairs in the database.
 
 Format: `list`
 
+
 ### Editing a Q&A : `edit` [Coming Soon]
 
 Edits an existing Q&A in the Medmoriser application.
@@ -43,6 +44,10 @@ Format: `delete INDEX`
 Examples:
 * `list` followed by `delete 2` deletes the 2nd Q&A in the question book.
 * `find disease` followed by `delete 1` deletes the 1st question in the results of the `find` command.
+
+### Viewing help : `help` [Coming soon]
+
+=======
 
 ### Viewing help : `help` [Coming soon]
 
@@ -77,14 +82,16 @@ Medmoriser data are saved in the hard disk automatically after any command that 
 
 --------------------------------------------------------------------------------------------------------------------
 
+
 ## Command summary
 
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
+
 **Edit** | Coming Soon
 **Find** | Coming Soon
+
 **List** | `list`
-**Help** | `help`
+

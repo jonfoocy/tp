@@ -37,7 +37,7 @@ You can find us on [Github](https://github.com/AY2021S1-CS2103T-W15-1)
 
 ### Cheng Jiyuqing
 
-<img src="images/ChengJiyuqing.png" width="200px">
+<img src="images/chengjiyuqing.png" width="200px">
 
 [[github](https://github.com/ChengJiyuqing)]
 
