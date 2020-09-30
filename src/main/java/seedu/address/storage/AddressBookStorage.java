@@ -5,10 +5,11 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
+import seedu.address.model.Medmoriser;
 import seedu.address.model.ReadOnlyAddressBook;
 
 /**
- * Represents a storage for {@link seedu.address.model.AddressBook}.
+ * Represents a storage for {@link Medmoriser}.
  */
 public interface AddressBookStorage {
 
