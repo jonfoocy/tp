@@ -7,7 +7,7 @@ import static seedu.medmoriser.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.medmoriser.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.medmoriser.testutil.Assert.assertThrows;
 import static seedu.medmoriser.testutil.TypicalPersons.ALICE;
-import static seedu.medmoriser.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.medmoriser.testutil.TypicalPersons.getTypicalMedmoriser;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,8 +37,8 @@ public class MedmoriserTest {
     }
 
     @Test
-    public void resetData_withValidReadOnlyAddressBook_replacesData() {
-        Medmoriser newData = getTypicalAddressBook();
+    public void resetData_withValidReadOnlyMedmoriser_replacesData() {
+        Medmoriser newData = getTypicalMedmoriser();
         medmoriser.resetData(newData);
         assertEquals(newData, medmoriser);
     }
@@ -49,7 +49,7 @@ public class MedmoriserTest {
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
-        AddressBookStub newData = new AddressBookStub(newPersons);
+        MedmoriserStub newData = new MedmoriserStub(newPersons);
 
         assertThrows(DuplicatePersonException.class, () -> medmoriser.resetData(newData));
     }
@@ -60,18 +60,18 @@ public class MedmoriserTest {
     }
 
     @Test
-    public void hasPerson_personNotInAddressBook_returnsFalse() {
+    public void hasPerson_personNotInMedmoriser_returnsFalse() {
         assertFalse(medmoriser.hasPerson(ALICE));
     }
 
     @Test
-    public void hasPerson_personInAddressBook_returnsTrue() {
+    public void hasPerson_personInMedmoriser_returnsTrue() {
         medmoriser.addPerson(ALICE);
         assertTrue(medmoriser.hasPerson(ALICE));
     }
 
     @Test
-    public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
+    public void hasPerson_personWithSameIdentityFieldsInMedmoriser_returnsTrue() {
         medmoriser.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
@@ -86,10 +86,10 @@ public class MedmoriserTest {
     /**
      * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
      */
-    private static class AddressBookStub implements ReadOnlyAddressBook {
+    private static class MedmoriserStub implements ReadOnlyMedmoriser {
         private final ObservableList<Person> persons = FXCollections.observableArrayList();
 
-        AddressBookStub(Collection<Person> persons) {
+        MedmoriserStub(Collection<Person> persons) {
             this.persons.setAll(persons);
         }
 

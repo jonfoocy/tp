@@ -6,7 +6,7 @@ import static seedu.medmoriser.testutil.Assert.assertThrows;
 import static seedu.medmoriser.testutil.TypicalPersons.ALICE;
 import static seedu.medmoriser.testutil.TypicalPersons.HOON;
 import static seedu.medmoriser.testutil.TypicalPersons.IDA;
-import static seedu.medmoriser.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.medmoriser.testutil.TypicalPersons.getTypicalMedmoriser;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.io.TempDir;
 
 import seedu.medmoriser.commons.exceptions.DataConversionException;
 import seedu.medmoriser.model.Medmoriser;
-import seedu.medmoriser.model.ReadOnlyAddressBook;
+import seedu.medmoriser.model.ReadOnlyMedmoriser;
 
 public class JsonMedmoriserStorageTest {
     private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonAddressBookStorageTest");
@@ -26,12 +26,12 @@ public class JsonMedmoriserStorageTest {
     public Path testFolder;
 
     @Test
-    public void readAddressBook_nullFilePath_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> readAddressBook(null));
+    public void readMedmoriser_nullFilePath_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> readMedmoriser(null));
     }
 
-    private java.util.Optional<ReadOnlyAddressBook> readAddressBook(String filePath) throws Exception {
-        return new JsonAddressBookStorage(Paths.get(filePath)).readAddressBook(addToTestDataPathIfNotNull(filePath));
+    private java.util.Optional<ReadOnlyMedmoriser> readMedmoriser(String filePath) throws Exception {
+        return new JsonMedmoriserStorage(Paths.get(filePath)).readMedmoriser(addToTestDataPathIfNotNull(filePath));
     }
 
     private Path addToTestDataPathIfNotNull(String prefsFileInTestDataFolder) {
@@ -42,69 +42,69 @@ public class JsonMedmoriserStorageTest {
 
     @Test
     public void read_missingFile_emptyResult() throws Exception {
-        assertFalse(readAddressBook("NonExistentFile.json").isPresent());
+        assertFalse(readMedmoriser("NonExistentFile.json").isPresent());
     }
 
     @Test
     public void read_notJsonFormat_exceptionThrown() {
-        assertThrows(DataConversionException.class, () -> readAddressBook("notJsonFormatAddressBook.json"));
+        assertThrows(DataConversionException.class, () -> readMedmoriser("notJsonFormatMedmoriser.json"));
     }
 
     @Test
-    public void readAddressBook_invalidPersonAddressBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readAddressBook("invalidPersonAddressBook.json"));
+    public void readMedmoriser_invalidQuestionSetMedmoriser_throwDataConversionException() {
+        assertThrows(DataConversionException.class, () -> readMedmoriser("invalidQuestionSetMedmoriser.json"));
     }
 
     @Test
-    public void readAddressBook_invalidAndValidPersonAddressBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readAddressBook("invalidAndValidPersonAddressBook.json"));
+    public void readMedmoriser_invalidAndValidQuestionSetMedmoriser_throwDataConversionException() {
+        assertThrows(DataConversionException.class, () -> readMedmoriser("invalidAndValidQuestionSetMedmoriser.json"));
     }
 
     @Test
-    public void readAndSaveAddressBook_allInOrder_success() throws Exception {
+    public void readAndSaveMedmoriser_allInOrder_success() throws Exception {
         Path filePath = testFolder.resolve("TempAddressBook.json");
-        Medmoriser original = getTypicalAddressBook();
-        JsonAddressBookStorage jsonAddressBookStorage = new JsonAddressBookStorage(filePath);
+        Medmoriser original = getTypicalMedmoriser();
+        JsonMedmoriserStorage jsonAddressBookStorage = new JsonMedmoriserStorage(filePath);
 
         // Save in new file and read back
-        jsonAddressBookStorage.saveAddressBook(original, filePath);
-        ReadOnlyAddressBook readBack = jsonAddressBookStorage.readAddressBook(filePath).get();
+        jsonAddressBookStorage.saveMedmoriser(original, filePath);
+        ReadOnlyMedmoriser readBack = jsonAddressBookStorage.readMedmoriser(filePath).get();
         assertEquals(original, new Medmoriser(readBack));
 
         // Modify data, overwrite exiting file, and read back
         original.addPerson(HOON);
         original.removePerson(ALICE);
-        jsonAddressBookStorage.saveAddressBook(original, filePath);
-        readBack = jsonAddressBookStorage.readAddressBook(filePath).get();
+        jsonAddressBookStorage.saveMedmoriser(original, filePath);
+        readBack = jsonAddressBookStorage.readMedmoriser(filePath).get();
         assertEquals(original, new Medmoriser(readBack));
 
         // Save and read without specifying file path
         original.addPerson(IDA);
-        jsonAddressBookStorage.saveAddressBook(original); // file path not specified
-        readBack = jsonAddressBookStorage.readAddressBook().get(); // file path not specified
+        jsonAddressBookStorage.saveMedmoriser(original); // file path not specified
+        readBack = jsonAddressBookStorage.readMedmoriser().get(); // file path not specified
         assertEquals(original, new Medmoriser(readBack));
 
     }
 
     @Test
-    public void saveAddressBook_nullAddressBook_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> saveAddressBook(null, "SomeFile.json"));
+    public void saveMedmoriser_nullMedmoriser_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> saveMedmoriser(null, "SomeFile.json"));
     }
 
     /**
      * Saves {@code addressBook} at the specified {@code filePath}.
      */
-    private void saveAddressBook(ReadOnlyAddressBook addressBook, String filePath) {
+    private void saveMedmoriser(ReadOnlyMedmoriser addressBook, String filePath) {
         try {
-            new JsonAddressBookStorage(Paths.get(filePath))
-                    .saveAddressBook(addressBook, addToTestDataPathIfNotNull(filePath));
+            new JsonMedmoriserStorage(Paths.get(filePath))
+                    .saveMedmoriser(addressBook, addToTestDataPathIfNotNull(filePath));
         } catch (IOException ioe) {
             throw new AssertionError("There should not be an error writing to the file.", ioe);
         }
     }
 
     @Test
-    public void saveAddressBook_nullFilePath_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> saveAddressBook(new Medmoriser(), null));
+    public void saveMedmoriser_nullFilePath_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> saveMedmoriser(new Medmoriser(), null));
     }
 }

@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import seedu.medmoriser.model.Medmoriser;
-import seedu.medmoriser.model.ReadOnlyAddressBook;
+import seedu.medmoriser.model.ReadOnlyMedmoriser;
 import seedu.medmoriser.model.person.Address;
 import seedu.medmoriser.model.person.Email;
 import seedu.medmoriser.model.person.Person;
@@ -40,7 +40,7 @@ public class SampleDataUtil {
         };
     }
 
-    public static ReadOnlyAddressBook getSampleAddressBook() {
+    public static ReadOnlyMedmoriser getSampleMedmoriser() {
         Medmoriser sampleAb = new Medmoriser();
         for (Person samplePerson : getSamplePersons()) {
             sampleAb.addPerson(samplePerson);

@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 import seedu.medmoriser.commons.core.LogsCenter;
 import seedu.medmoriser.commons.exceptions.DataConversionException;
-import seedu.medmoriser.model.ReadOnlyAddressBook;
+import seedu.medmoriser.model.ReadOnlyMedmoriser;
 import seedu.medmoriser.model.ReadOnlyUserPrefs;
 import seedu.medmoriser.model.UserPrefs;
 
@@ -17,15 +17,15 @@ import seedu.medmoriser.model.UserPrefs;
 public class StorageManager implements Storage {
 
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
-    private AddressBookStorage addressBookStorage;
+    private MedmoriserStorage medmoriserStorage;
     private UserPrefsStorage userPrefsStorage;
 
     /**
      * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
      */
-    public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
+    public StorageManager(MedmoriserStorage medmoriserStorage, UserPrefsStorage userPrefsStorage) {
         super();
-        this.addressBookStorage = addressBookStorage;
+        this.medmoriserStorage = medmoriserStorage;
         this.userPrefsStorage = userPrefsStorage;
     }
 
@@ -50,30 +50,30 @@ public class StorageManager implements Storage {
     // ================ AddressBook methods ==============================
 
     @Override
-    public Path getAddressBookFilePath() {
-        return addressBookStorage.getAddressBookFilePath();
+    public Path getMedmoriserFilePath() {
+        return medmoriserStorage.getMedmoriserFilePath();
     }
 
     @Override
-    public Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException {
-        return readAddressBook(addressBookStorage.getAddressBookFilePath());
+    public Optional<ReadOnlyMedmoriser> readMedmoriser() throws DataConversionException, IOException {
+        return readMedmoriser(medmoriserStorage.getMedmoriserFilePath());
     }
 
     @Override
-    public Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException {
+    public Optional<ReadOnlyMedmoriser> readMedmoriser(Path filePath) throws DataConversionException, IOException {
         logger.fine("Attempting to read data from file: " + filePath);
-        return addressBookStorage.readAddressBook(filePath);
+        return medmoriserStorage.readMedmoriser(filePath);
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
-        saveAddressBook(addressBook, addressBookStorage.getAddressBookFilePath());
+    public void saveMedmoriser(ReadOnlyMedmoriser medmoriser) throws IOException {
+        saveMedmoriser(medmoriser, medmoriserStorage.getMedmoriserFilePath());
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
+    public void saveMedmoriser(ReadOnlyMedmoriser addressBook, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
-        addressBookStorage.saveAddressBook(addressBook, filePath);
+        medmoriserStorage.saveMedmoriser(addressBook, filePath);
     }
 
 }

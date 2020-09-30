@@ -12,7 +12,7 @@ import seedu.medmoriser.model.person.UniquePersonList;
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSamePerson comparison)
  */
-public class Medmoriser implements ReadOnlyAddressBook {
+public class Medmoriser implements ReadOnlyMedmoriser {
 
     private final UniquePersonList persons;
 
@@ -32,7 +32,7 @@ public class Medmoriser implements ReadOnlyAddressBook {
     /**
      * Creates an AddressBook using the Persons in the {@code toBeCopied}
      */
-    public Medmoriser(ReadOnlyAddressBook toBeCopied) {
+    public Medmoriser(ReadOnlyMedmoriser toBeCopied) {
         this();
         resetData(toBeCopied);
     }
@@ -50,7 +50,7 @@ public class Medmoriser implements ReadOnlyAddressBook {
     /**
      * Resets the existing data of this {@code AddressBook} with {@code newData}.
      */
-    public void resetData(ReadOnlyAddressBook newData) {
+    public void resetData(ReadOnlyMedmoriser newData) {
         requireNonNull(newData);
 
         setPersons(newData.getPersonList());

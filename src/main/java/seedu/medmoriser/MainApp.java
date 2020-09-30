@@ -18,13 +18,13 @@ import seedu.medmoriser.logic.LogicManager;
 import seedu.medmoriser.model.Medmoriser;
 import seedu.medmoriser.model.Model;
 import seedu.medmoriser.model.ModelManager;
-import seedu.medmoriser.model.ReadOnlyAddressBook;
+import seedu.medmoriser.model.ReadOnlyMedmoriser;
 import seedu.medmoriser.model.ReadOnlyUserPrefs;
 import seedu.medmoriser.model.UserPrefs;
 import seedu.medmoriser.model.util.SampleDataUtil;
-import seedu.medmoriser.storage.AddressBookStorage;
-import seedu.medmoriser.storage.JsonAddressBookStorage;
+import seedu.medmoriser.storage.JsonMedmoriserStorage;
 import seedu.medmoriser.storage.JsonUserPrefsStorage;
+import seedu.medmoriser.storage.MedmoriserStorage;
 import seedu.medmoriser.storage.Storage;
 import seedu.medmoriser.storage.StorageManager;
 import seedu.medmoriser.storage.UserPrefsStorage;
@@ -56,8 +56,8 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
-        storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        MedmoriserStorage medmoriserStorage = new JsonMedmoriserStorage(userPrefs.getMedmoriserFilePath());
+        storage = new StorageManager(medmoriserStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -74,14 +74,14 @@ public class MainApp extends Application {
      * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
-        Optional<ReadOnlyAddressBook> addressBookOptional;
-        ReadOnlyAddressBook initialData;
+        Optional<ReadOnlyMedmoriser> addressBookOptional;
+        ReadOnlyMedmoriser initialData;
         try {
-            addressBookOptional = storage.readAddressBook();
+            addressBookOptional = storage.readMedmoriser();
             if (!addressBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample AddressBook");
             }
-            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
+            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleMedmoriser);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
             initialData = new Medmoriser();

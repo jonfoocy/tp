@@ -8,7 +8,7 @@ import static seedu.medmoriser.logic.commands.CommandTestUtil.assertCommandSucce
 import static seedu.medmoriser.testutil.TypicalPersons.CARL;
 import static seedu.medmoriser.testutil.TypicalPersons.ELLE;
 import static seedu.medmoriser.testutil.TypicalPersons.FIONA;
-import static seedu.medmoriser.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.medmoriser.testutil.TypicalPersons.getTypicalMedmoriser;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,8 +24,8 @@ import seedu.medmoriser.model.person.QuestionContainsKeywordsPredicate;
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
  */
 public class FindCommandTest {
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalMedmoriser(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalMedmoriser(), new UserPrefs());
 
     @Test
     public void equals() {

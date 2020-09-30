@@ -7,7 +7,7 @@ import seedu.medmoriser.commons.core.GuiSettings;
 import seedu.medmoriser.logic.commands.CommandResult;
 import seedu.medmoriser.logic.commands.exceptions.CommandException;
 import seedu.medmoriser.logic.parser.exceptions.ParseException;
-import seedu.medmoriser.model.ReadOnlyAddressBook;
+import seedu.medmoriser.model.ReadOnlyMedmoriser;
 import seedu.medmoriser.model.person.Person;
 
 /**
@@ -26,9 +26,9 @@ public interface Logic {
     /**
      * Returns the AddressBook.
      *
-     * @see seedu.medmoriser.model.Model#getAddressBook()
+     * @see seedu.medmoriser.model.Model#getMedmoriser()
      */
-    ReadOnlyAddressBook getAddressBook();
+    ReadOnlyMedmoriser getMedmoriser();
 
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<Person> getFilteredPersonList();
@@ -36,7 +36,7 @@ public interface Logic {
     /**
      * Returns the user prefs' address book file path.
      */
-    Path getAddressBookFilePath();
+    Path getMedmoriserFilePath();
 
     /**
      * Returns the user prefs' GUI settings.

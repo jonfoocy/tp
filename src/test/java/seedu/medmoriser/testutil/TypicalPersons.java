@@ -62,7 +62,7 @@ public class TypicalPersons {
     /**
      * Returns an {@code AddressBook} with all the typical persons.
      */
-    public static Medmoriser getTypicalAddressBook() {
+    public static Medmoriser getTypicalMedmoriser() {
         Medmoriser ab = new Medmoriser();
         for (Person person : getTypicalPersons()) {
             ab.addPerson(person);
