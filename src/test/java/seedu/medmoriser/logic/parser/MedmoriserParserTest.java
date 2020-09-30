@@ -23,8 +23,8 @@ import seedu.medmoriser.logic.commands.FindCommand;
 import seedu.medmoriser.logic.commands.HelpCommand;
 import seedu.medmoriser.logic.commands.ListCommand;
 import seedu.medmoriser.logic.parser.exceptions.ParseException;
-import seedu.medmoriser.model.person.NameContainsKeywordsPredicate;
 import seedu.medmoriser.model.person.Person;
+import seedu.medmoriser.model.person.QuestionContainsKeywordsPredicate;
 import seedu.medmoriser.testutil.EditPersonDescriptorBuilder;
 import seedu.medmoriser.testutil.PersonBuilder;
 import seedu.medmoriser.testutil.PersonUtil;
@@ -73,7 +73,7 @@ public class MedmoriserParserTest {
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
         FindCommand command = (FindCommand) parser.parseCommand(
                 FindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-        assertEquals(new FindCommand(new NameContainsKeywordsPredicate(keywords)), command);
+        assertEquals(new FindCommand(new QuestionContainsKeywordsPredicate(keywords)), command);
     }
 
     @Test

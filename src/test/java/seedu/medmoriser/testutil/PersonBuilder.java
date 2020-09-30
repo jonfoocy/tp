@@ -5,9 +5,9 @@ import java.util.Set;
 
 import seedu.medmoriser.model.person.Address;
 import seedu.medmoriser.model.person.Email;
-import seedu.medmoriser.model.person.Name;
 import seedu.medmoriser.model.person.Person;
 import seedu.medmoriser.model.person.Phone;
+import seedu.medmoriser.model.person.Question;
 import seedu.medmoriser.model.tag.Tag;
 import seedu.medmoriser.model.util.SampleDataUtil;
 
@@ -21,7 +21,7 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
-    private Name name;
+    private Question question;
     private Phone phone;
     private Email email;
     private Address address;
@@ -31,7 +31,7 @@ public class PersonBuilder {
      * Creates a {@code PersonBuilder} with the default details.
      */
     public PersonBuilder() {
-        name = new Name(DEFAULT_NAME);
+        question = new Question(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
@@ -42,7 +42,7 @@ public class PersonBuilder {
      * Initializes the PersonBuilder with the data of {@code personToCopy}.
      */
     public PersonBuilder(Person personToCopy) {
-        name = personToCopy.getName();
+        question = personToCopy.getQuestion();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
@@ -53,7 +53,7 @@ public class PersonBuilder {
      * Sets the {@code Name} of the {@code Person} that we are building.
      */
     public PersonBuilder withName(String name) {
-        this.name = new Name(name);
+        this.question = new Question(name);
         return this;
     }
 
@@ -90,7 +90,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, tags);
+        return new Person(question, phone, email, address, tags);
     }
 
 }

@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.medmoriser.commons.core.Messages;
 import seedu.medmoriser.model.Model;
-import seedu.medmoriser.model.person.NameContainsKeywordsPredicate;
+import seedu.medmoriser.model.person.QuestionContainsKeywordsPredicate;
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.
@@ -19,9 +19,9 @@ public class FindCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " alice bob charlie";
 
-    private final NameContainsKeywordsPredicate predicate;
+    private final QuestionContainsKeywordsPredicate predicate;
 
-    public FindCommand(NameContainsKeywordsPredicate predicate) {
+    public FindCommand(QuestionContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 

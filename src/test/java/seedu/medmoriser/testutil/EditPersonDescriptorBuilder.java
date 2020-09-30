@@ -7,9 +7,9 @@ import java.util.stream.Stream;
 import seedu.medmoriser.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.medmoriser.model.person.Address;
 import seedu.medmoriser.model.person.Email;
-import seedu.medmoriser.model.person.Name;
 import seedu.medmoriser.model.person.Person;
 import seedu.medmoriser.model.person.Phone;
+import seedu.medmoriser.model.person.Question;
 import seedu.medmoriser.model.tag.Tag;
 
 /**
@@ -32,7 +32,7 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder(Person person) {
         descriptor = new EditPersonDescriptor();
-        descriptor.setName(person.getName());
+        descriptor.setQuestion(person.getQuestion());
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
@@ -43,7 +43,7 @@ public class EditPersonDescriptorBuilder {
      * Sets the {@code Name} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withName(String name) {
-        descriptor.setName(new Name(name));
+        descriptor.setQuestion(new Question(name));
         return this;
     }
 

@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Test;
 import seedu.medmoriser.logic.parser.exceptions.ParseException;
 import seedu.medmoriser.model.person.Address;
 import seedu.medmoriser.model.person.Email;
-import seedu.medmoriser.model.person.Name;
 import seedu.medmoriser.model.person.Phone;
+import seedu.medmoriser.model.person.Question;
 import seedu.medmoriser.model.tag.Tag;
 
 public class ParserUtilTest {
@@ -58,25 +58,25 @@ public class ParserUtilTest {
 
     @Test
     public void parseName_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseName((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseQuestion((String) null));
     }
 
     @Test
     public void parseName_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseName(INVALID_NAME));
+        assertThrows(ParseException.class, () -> ParserUtil.parseQuestion(INVALID_NAME));
     }
 
     @Test
     public void parseName_validValueWithoutWhitespace_returnsName() throws Exception {
-        Name expectedName = new Name(VALID_NAME);
-        assertEquals(expectedName, ParserUtil.parseName(VALID_NAME));
+        Question expectedQuestion = new Question(VALID_NAME);
+        assertEquals(expectedQuestion, ParserUtil.parseQuestion(VALID_NAME));
     }
 
     @Test
     public void parseName_validValueWithWhitespace_returnsTrimmedName() throws Exception {
         String nameWithWhitespace = WHITESPACE + VALID_NAME + WHITESPACE;
-        Name expectedName = new Name(VALID_NAME);
-        assertEquals(expectedName, ParserUtil.parseName(nameWithWhitespace));
+        Question expectedQuestion = new Question(VALID_NAME);
+        assertEquals(expectedQuestion, ParserUtil.parseQuestion(nameWithWhitespace));
     }
 
     @Test

@@ -15,7 +15,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import seedu.medmoriser.commons.core.GuiSettings;
-import seedu.medmoriser.model.person.NameContainsKeywordsPredicate;
+import seedu.medmoriser.model.person.QuestionContainsKeywordsPredicate;
 import seedu.medmoriser.testutil.AddressBookBuilder;
 
 public class ModelManagerTest {
@@ -117,8 +117,8 @@ public class ModelManagerTest {
         assertFalse(modelManager.equals(new ModelManager(differentMedmoriser, userPrefs)));
 
         // different filteredList -> returns false
-        String[] keywords = ALICE.getName().fullName.split("\\s+");
-        modelManager.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
+        String[] keywords = ALICE.getQuestion().question.split("\\s+");
+        modelManager.updateFilteredPersonList(new QuestionContainsKeywordsPredicate(Arrays.asList(keywords)));
         assertFalse(modelManager.equals(new ModelManager(medmoriser, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests
