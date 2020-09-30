@@ -16,7 +16,7 @@ import seedu.medmoriser.model.util.SampleDataUtil;
  */
 public class PersonBuilder {
 
-    public static final String DEFAULT_NAME = "Alice Pauline";
+    public static final String DEFAULT_QUESTION = "Alice Pauline";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
@@ -31,7 +31,7 @@ public class PersonBuilder {
      * Creates a {@code PersonBuilder} with the default details.
      */
     public PersonBuilder() {
-        question = new Question(DEFAULT_NAME);
+        question = new Question(DEFAULT_QUESTION);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
@@ -50,10 +50,10 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code Person} that we are building.
+     * Sets the {@code Question} of the {@code Person} that we are building.
      */
-    public PersonBuilder withName(String name) {
-        this.question = new Question(name);
+    public PersonBuilder withQuestion(String question) {
+        this.question = new Question(question);
         return this;
     }
 

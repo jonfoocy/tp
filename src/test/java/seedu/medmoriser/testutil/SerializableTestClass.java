@@ -21,15 +21,15 @@ public class SerializableTestClass {
             + "  }%n"
             + "}");
 
-    private static final String NAME_TEST_VALUE = "This is a test class";
+    private static final String QUESTION_TEST_VALUE = "This is a test class";
 
-    private String name;
+    private String question;
 
     private List<LocalDateTime> listOfLocalDateTimes;
     private HashMap<Integer, String> mapOfIntegerToString;
 
-    public static String getNameTestValue() {
-        return NAME_TEST_VALUE;
+    public static String getQuestionTestValue() {
+        return QUESTION_TEST_VALUE;
     }
 
     public static List<LocalDateTime> getListTestValues() {
@@ -53,13 +53,13 @@ public class SerializableTestClass {
     }
 
     public void setTestValues() {
-        name = getNameTestValue();
+        question = getQuestionTestValue();
         listOfLocalDateTimes = getListTestValues();
         mapOfIntegerToString = getHashMapTestValues();
     }
 
-    public String getName() {
-        return name;
+    public String getQuestion() {
+        return question;
     }
 
     public List<LocalDateTime> getListOfLocalDateTimes() {

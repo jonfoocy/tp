@@ -40,10 +40,10 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Question} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withName(String name) {
-        descriptor.setQuestion(new Question(name));
+    public EditPersonDescriptorBuilder withQuestion(String question) {
+        descriptor.setQuestion(new Question(question));
         return this;
     }
 
